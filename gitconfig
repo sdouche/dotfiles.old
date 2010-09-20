@@ -1,0 +1,67 @@
+[user]
+	email = sdouche@gmail.com
+	name = Sebastien Douche
+
+[alias]
+	st = "status"
+	br = "branch"
+	ci = "commit"
+	co = "checkout"
+	df = "diff"
+	sb = "show-branch"
+    amend = "ci --amend"
+	wdiff = "diff --word-diff"
+	wshow = "show --word-diff"
+	glog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	glogs = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat"
+    whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+    whatis = "show -s --pretty='tformat:%h (%s, %ad)' --date=short"
+	pickaxe = "log -S"$1" --pretty=oneline --abbrev-commit "$2""
+	head = "log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n1"
+ 	heads = !"git log origin/master.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'"
+	ntag = "name-rev --name-only"
+	cbranch = "branch --contains"
+    staged = "diff --cached"
+    unstaged = "diff"
+    both = "diff HEAD"
+    unstage = "reset HEAD --"
+    undo = "reset --hard"
+    lc = "log ORIG_HEAD.. --stat --no-merges"
+    root = "!cd $(git rev-parse --show-cdup)"
+    changes="diff --name-status -r"
+    diffstat="diff --stat -r"
+    prune-all = "!git remote | xargs -n 1 git remote prune"
+    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+
+[core]
+excludesfile=/home/sdouche/.gitignore
+
+[url "ssh://git-master@git.rd.securactive.lan/srv/git"]
+	insteadOf = sact-master:
+
+[url "ssh://git.rd.securactive.lan/srv/git"]
+	insteadOf = sact-ssl:
+
+[url "git://git.rd.securactive.lan"]
+	insteadOf = sact:
+
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[merge]
+	tool = kdiff3
+	conflictstyle = diff3
+[push]
+	default = tracking
