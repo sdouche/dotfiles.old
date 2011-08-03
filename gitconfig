@@ -189,7 +189,3 @@
 
 [push]
 	default = tracking
-
-[github]
-user = sdouche
-token = dc3c00104fa82c6f915ad3f403f93a9

@@ -1,0 +1,9 @@
+Personal config files
+=====================
+
+* gitconfig
+    Git configuration.
+
+* git-prompt.conf
+    Git-prompt configuration (https://github.com/lvv/git-prompt).
+
