@@ -157,11 +157,11 @@
 [core]
 	excludesfile=/home/sdouche/.gitignore
 
-[url "ssh://git-master@git.rd.securactive.lan/srv/git"]
-	insteadOf = sact-master:
-
 [url "ssh://git.rd.securactive.lan/srv/git"]
 	insteadOf = sact:
+
+[url "https://github.com"]
+	insteadOf = gh:
 
 [color]
 	ui = auto
