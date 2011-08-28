@@ -1,0 +1,27 @@
+[ui]
+username = Sebastien Douche <sdouche@gmail.com>
+ignore = ~/.hgignore
+
+[extensions]
+hgext.mq =
+hgext.hgk = /home/sdouche/.pythonbrew/pythons/Python-2.7.1/lib/python2.7/site-packages/hgext/hgk.py
+hgext.graphlog =
+hgext.patchbomb =
+hgext.bookmarks =
+hgext.children =
+hgext.extdiff = 
+hgext.rebase = 
+hgext.color = 
+hgext.pager =
+hgext.progress = 
+hgext.rebase =
+hgext.record = 
+hgext.parentrevspec = 
+
+[alias]
+slog = log --style=/home/sdouche/src/hg/mercurial-cli-templates/map-cmdline.slog
+nlog = log --style=/home/sdouche/src/hg/mercurial-cli-templates/map-cmdline.nlog
+sglog = log --style=/home/sdouche/src/hg/mercurial-cli-templates/map-cmdline.sglog
+
+[pager]
+pager = LESS='FSRX' less

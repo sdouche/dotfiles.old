@@ -1,0 +1,91 @@
+#
+# Base configuration
+#
+# Syntax: set <option> = <value>
+set author-width = 12
+set show-author = abbreviated
+set show-date = short
+set show-rev-graph = yes
+set show-refs = yes
+#set line-graphics = default
+set line-graphics = utf-8
+set show-line-numbers = no
+set line-number-interval = 5
+set commit-encoding = "UTF-8"
+set horizontal-scroll = 33%
+set split-view-height = 85%
+set tab-size = 4
+set status-untracked-dirs = yes
+
+#
+# Key configuration
+#
+# Syntax: bind <keymap> <key> <request>
+
+bind generic F !git fetch
+bind generic C !git checkout %(commit)
+
+#bind main w scroll-line-up
+#bind main s scroll-line-down
+#bind main space enter
+#bind diff a previous
+#bind diff d next
+#bind diff b move-first-line
+#bind main w scroll-line-up
+#bind main s scroll-line-down
+#bind diff a previous
+#bind diff d next
+#bind diff b move-first-line
+#bind generic g view-next
+
+#
+# Color configuration
+#
+# Syntax: color <line> <color> <color> [<attribute>]
+
+# Diff colors
+color diff-header	 yellow	 default
+color diff-index	 blue	 default
+color diff-chunk	 magenta default
+color diff-add		 green	 default
+color diff-del		 red	 default
+color diff-oldmode	 yellow	 default
+color diff-newmode	 yellow	 default
+color diff-copy-from	 yellow	 default
+color diff-copy-to	 yellow	 default
+color diff-rename-from	 yellow	 default
+color diff-rename-to	 yellow	 default
+color diff-similarity	 yellow	 default
+color diff-dissimilarity yellow	 default
+color diff-tree		 blue	 default
+
+# Pretty print commit header
+color pp-author		cyan	default
+color pp-commit		magenta	default
+color pp-merge		blue	default
+color pp-date		yellow	default
+color pp-adate		yellow	default
+color pp-cdate		yellow	default
+
+# Raw commit header
+color commit		green	default
+color parent		blue	default
+color tree		blue	default
+color author		cyan	default
+color committer		magenta	default
+
+# Misc
+color signoff		yellow	default
+
+# UI colors
+color default		default	default
+color cursor		white	green
+color status		green	default
+color title-blur	white	blue
+color title-focus	white	blue	bold
+color main-date		blue	default
+color main-author	green	default
+color main-commit	default	default
+color main-delim	magenta	default
+color main-tag		magenta	default	bold
+color main-ref		cyan	default	bold

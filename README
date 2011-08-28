@@ -1,9 +1,23 @@
 Personal config files
 =====================
 
-* gitconfig
+* gitconfig / gitignore / gitk
     Git configuration.
 
 * git-prompt.conf
-    Git-prompt configuration (https://github.com/lvv/git-prompt).
+    Git-prompt configuration (Git prompt tool: https://github.com/lvv/git-prompt/).
 
+* tigrc
+    tig configuration (Git CLI tool: http://jonas.nitro.dk/tig/).
+
+* bashrc / bash_aliases
+    Bash configuration.
+
+* hgrc
+    Mercurial configuration.
+
+* taskrc
+    taskwarrior configuration (CLI task tool: http://taskwarrior.org/).
+
+* vimrc
+    Vim configuraiton.
