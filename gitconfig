@@ -10,8 +10,10 @@
 	# Short status
 	s = status -s
 
-	# Show all branches
-	br = branch -a
+	# Show branches
+	br = branch
+	bra = branch -a
+	brr = branch -r
 
 	# Show branches with commit message
 	sb = show-branch
