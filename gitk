@@ -1,6 +1,6 @@
 set mainfont {Monaco 10}
-set textfont {Monaco 8}
-set uifont {Monaco 8 bold}
+set textfont {Monaco 10}
+set uifont {Monaco 9 bold}
 set tabstop 4
 set findmergefiles 0
 set maxgraphpct 60
