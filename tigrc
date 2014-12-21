@@ -1,92 +1,104 @@
-#
+################################################################################
 # Base configuration
-#
-# Syntax: set <option> = <value>
-set author-width = 12
-set show-author = abbreviated
-set show-date = short
-set show-rev-graph = yes
-set show-refs = yes
-set show-notes = yes
-set show-changes = yes
-set line-graphics = utf8
-#set read-git-colors = yes
-set show-line-numbers = no
-set line-number-interval = 5
-set horizontal-scroll = 33%
-set split-view-height = 85%
-set tab-size = 4
-set status-untracked-dirs = yes
+################################################################################
 
-#
+set commit-order = topo
+set git-colors = true
+set horizontal-scroll = 33%
+set blame-options = -C -C -C
+# set diff-options =
+set reference-format = (branch) <tag>
+set line-graphics = utf-8
+set show-notes = true
+set show-changes = true
+set vertical-split = auto
+set split-view-height = 67%
+set status-untracked-dirs = true
+set tab-size = 4
+set diff-context = 4
+set ignore-space = no
+set ignore-case = true
+set wrap-lines = false
+set focus-child = true
+set editor-line-number = true
+set mouse = false
+set mouse-scroll = 3
+set refresh-mode = auto
+# refresh-interval (int)
+# file-args (args)
+# rev-args (args)
+# cmdline-args (args)
+
+################################################################################
+# View configuration
+################################################################################
+
+# blob-view
+# line-number, text
+
+# diff-view
+# line-number, text
+
+# log-view
+# line-number, text
+
+# pager-view
+# line-number, text
+
+# stage-view
+# line-number, text
+
+#blame-view
+#author, date, file-name, id, line-number, text
+set blame-view = \
+        date:default \
+        author:abbreviated \
+        file-name:auto \
+        id:yes,color \
+        line-number:yes,interval=5 \
+        text
+
+# grep-view
+# file-name, line-number, text
+
+# main-view
+# author, date, commit-title, id, line-number
+set main-view = \
+        id:yes \
+        date:short \
+        author:abbreviated,width=10 \
+        commit-title:graph=yes,refs=yes,overflow=no
+
+# refs-view
+# author, date, commit-title, id, line-number, ref
+set refs-view = \
+        id:yes \
+        date:short \
+        author:abbreviated,width=10 \
+        ref:yes \
+        commit-title:graph=yes,refs=yes,overflow=no
+
+# stash-view
+# author, date, commit-title, id, line-number
+set stash-view = \
+        date:short \
+        author:abbreviated,width=10 \
+        commit-title:graph=no,refs=no,overflow=no
+
+# status-view
+# file-name, line-number, status
+
+# tree-view
+# author, date, id, file-name, file-size, line-number, mode
+
+################################################################################
 # Key configuration
-#
-# Syntax: bind <keymap> <key> <request>
+################################################################################
 
 bind generic F !git fetch
 bind generic C !git checkout %(commit)
+bind generic S :source ~/.tigrc
 
-#bind main w scroll-line-up
-#bind main s scroll-line-down
-#bind main space enter
-#bind diff a previous
-#bind diff d next
-#bind diff b move-first-line
-#bind main w scroll-line-up
-#bind main s scroll-line-down
-#bind diff a previous
-#bind diff d next
-#bind diff b move-first-line
-#bind generic g view-next
-
-#
+################################################################################
 # Color configuration
-#
-# Syntax: color <line> <color> <color> [<attribute>]
-
-# Diff colors
-color diff-header	 yellow	 default
-color diff-index	 blue	 default
-color diff-chunk	 magenta default
-color diff-add		 green	 default
-color diff-del		 red	 default
-color diff-oldmode	 yellow	 default
-color diff-newmode	 yellow	 default
-color diff-copy-from	 yellow	 default
-color diff-copy-to	 yellow	 default
-color diff-rename-from	 yellow	 default
-color diff-rename-to	 yellow	 default
-color diff-similarity	 yellow	 default
-color diff-dissimilarity yellow	 default
-color diff-tree		 blue	 default
-
-# Pretty print commit header
-color pp-author		cyan	default
-color pp-commit		magenta	default
-color pp-merge		blue	default
-color pp-date		yellow	default
-color pp-adate		yellow	default
-color pp-cdate		yellow	default
-
-# Raw commit header
-color commit		green	default
-color parent		blue	default
-color tree		blue	default
-color author		cyan	default
-color committer		magenta	default
-
-# Misc
-color signoff		yellow	default
-
-# UI colors
-color default		default	default
-color cursor		white	green
-color status		green	default
-color title-blur	white	blue
-color title-focus	white	blue	bold
-color main-date		blue	default
-color main-author	green	default
-color main-commit	default	default
-color main-delim	magenta	default
-color main-tag		magenta	default	bold
-color main-ref		cyan	default	bold
+################################################################################
