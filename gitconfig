@@ -10,10 +10,8 @@
 	# Short status
 	s = status -s
 
-	# Show branches
-	br = branch
-	bra = branch -a
-	brr = branch -r
+	# Show all branches
+	br = branch -a
 
 	# Show branches with commit message
 	sb = show-branch
@@ -31,7 +29,7 @@
        	amend = ci --amend
 
 	# Removes files/directories from staging
-	unadd = rm -r --cached
+        unadd = reset HEAD --
 
         ##### Diff aliases
 	# Diff and show commands with word-diff style
@@ -49,9 +47,6 @@
 
 	# Diff with statistics
         ds = diff --stat -r
-
-	# Short basic diff
-	changes= diff --name-status -r
 
         ##### Log aliases
         # Show HEAD commit
@@ -74,6 +69,9 @@
 
         # Short one line logs with ref-names (yellowà, date (green) and author (blue)
 	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 
 	# Show last commit
 	lc = log ORIG_HEAD.. --stat --no-merges
@@ -157,7 +155,11 @@
     	upstream = !git for-each-ref --format='%(upstream:short)' `git symbolic-ref HEAD`
 
 [core]
-	excludesfile=/home/sdouche/.gitignore
+	excludesfile = /home/sdouche/.gitignore
+        pager = "less -FXRS"
+        editor = vim
+	whitespace = trailing-space,space-before-tab
+	autocrlf = input
 
 [url "ssh://git.rd.securactive.lan/srv/git"]
 	insteadOf = sact:
@@ -185,9 +187,20 @@
 	untracked = cyan
         branch = green
 
+[branch]
+        master = rebase
+
 [merge]
 	tool = kdiff3
 	conflictstyle = diff3
+	stat = true
 
 [push]
 	default = tracking
+
+[diff]
+	mnemonicprefix = true
+	renames = copies
+
+[rerere]
+	enabled = true

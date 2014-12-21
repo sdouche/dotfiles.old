@@ -1,0 +1,8 @@
+[dotfiles]
+repository = ~/src/sdouche/dotfiles
+packages = ['config']
+ignore = [
+    'README',
+    '.git',
+    '.gitignore',
+    '*.swp']
