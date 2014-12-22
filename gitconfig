@@ -2,6 +2,64 @@
 	email = sdouche@gmail.com
 	name = Sébastien Douche
 
+[core]
+	excludesfile = /home/sdouche/.gitignore
+	pager = "less -FXRS"
+	editor = vim
+	whitespace = trailing-space,space-before-tab
+	autocrlf = input
+
+[branch]
+	master = rebase
+
+[push]
+	default = simple
+
+[merge]
+	tool = meld
+	conflictstyle = diff3
+	stat = true
+
+[diff]
+	tool = meld
+	algorithm = patience
+	mnemonicprefix = true
+	renames = copies
+
+[rerere]
+	enabled = true
+	autoupdate = 1
+
+[color]
+	ui = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+	branch = green
+
+[url "https://github.com"]
+	insteadOf = gh:
+
+[url "https://gist.github.com/"]
+		insteadOf = gist:
+
+[url "https://bitbucket.org/"]
+		insteadOf = bb:
+
 [alias]
 	##### Basic aliases
 	# Status
@@ -50,7 +108,7 @@
 	head = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n1
 
 	# Show commits from origin/master to HEAD
- 	heads = !git log origin/master.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'
+	heads = !git log origin/master.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'
 
 	# Short one line logs with ref-names
 	l = log --oneline --decorate=short
@@ -64,13 +122,13 @@
 	# Short one line logs with ref-names and statistics
 	gl = log --oneline --decorate --stat --graph
 
-    # Short one line logs with ref-names (yellowà, date (green) and author (blue)
+	# Short one line logs with ref-names (yellowà, date (green) and author (blue)
 	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 
-	# Show last commit
+	# Show fetched commits
 	lc = log ORIG_HEAD.. --stat --no-merges
 
 	# Graph log with full commit message
@@ -124,6 +182,12 @@
 	# Show users which have commits in current branch
 	ul = !git log --format='%aN' | sort -u
 
+	# Remove deleted files
+	r = !git ls-files -z --deleted | xargs -0 git rm
+
+	# Start a new local repository and perform initial commit
+	icommit = git commit --allow-empty -m \"Initial commit\"
+
 	# Show users which have commits in current branch, including number of commits, sorted (most commits last)
 	uccl = !git log --format='%aN <%aE>'  | awk '{arr[$0]++} END{for (i in arr){print arr[i], i;}}' | sort -n
 
@@ -150,51 +214,3 @@
 
 	# Show upstream for the current branch
 	upstream = !git for-each-ref --format='%(upstream:short)' `git symbolic-ref HEAD`
-
-[core]
-	excludesfile = /home/sdouche/.gitignore
-	pager = "less -FXRS"
-	editor = vim
-	whitespace = trailing-space,space-before-tab
-	autocrlf = input
-
-[url "https://github.com"]
-	insteadOf = gh:
-
-[color]
-	ui = auto
-
-[color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
-
-[color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-
-[color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
-	branch = green
-
-[branch]
-	master = rebase
-
-[merge]
-	tool = kdiff3
-	conflictstyle = diff3
-	stat = true
-
-[push]
-	default = tracking
-
-[diff]
-	mnemonicprefix = true
-	renames = copies
-
-[rerere]
-	enabled = true
